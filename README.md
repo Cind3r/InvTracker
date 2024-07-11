@@ -5,7 +5,7 @@ A custom automation process using iOS shortcuts for scanning inventory items in 
 # Technology
   - n8n CLI tool
   - Docker
-  - AWS
+  - AWS / DigitalOcean
   - iOS shortcuts
   - google sheets
     
