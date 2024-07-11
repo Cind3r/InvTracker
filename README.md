@@ -1,6 +1,6 @@
 # InvTracker
 
-A custom automation process using iOS shortcuts for scanning inventory items in a store to optimize workflow at ground-level and cost-effeciency of shipments.
+A custom automation process using iOS shortcuts for scanning inventory items in a store to optimize workflow at ground-level and cost-effeciency of shipment orders.
 
 # Technology
   - n8n CLI tool
