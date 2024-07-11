@@ -1,0 +1,580 @@
+{
+  "name": "Store Scan Processes",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90",
+          "mode": "list",
+          "cachedResultName": "Inventory List",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1555051589,
+          "mode": "list",
+          "cachedResultName": "dictionary",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit#gid=1555051589"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "barcode": "={{ $json.body.item }}",
+            "display_name": "={{ $json.body.itemName }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "display_name",
+              "displayName": "display_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "barcode",
+              "displayName": "barcode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1bc8201-4592-4487-8302-802d6ea2b50c",
+      "name": "Add Inventory Item",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        1660,
+        40
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9aOtfgxoJatzJlSj",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90",
+          "mode": "list",
+          "cachedResultName": "Inventory List",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 604186301,
+          "mode": "list",
+          "cachedResultName": "cull_format",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit#gid=604186301"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $json.body.datePOST }}",
+            "barcode": "={{ $json.body.item }}",
+            "device": "={{ $json.body.deviceName }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "barcode",
+              "displayName": "barcode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "device",
+              "displayName": "device",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "581bdcb2-7f90-4666-806a-fabd9f47ab6f",
+      "name": "Add to Cull List",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        1660,
+        360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9aOtfgxoJatzJlSj",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90",
+          "mode": "list",
+          "cachedResultName": "Inventory List",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1329950996,
+          "mode": "list",
+          "cachedResultName": "diff_calc",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1q_gXmi0-Xg5vLS-hkhBFPdwZRwApbG_XAQIXUBWkz90/edit#gid=1329950996"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "barcode": "={{ $json.body.item }}",
+            "time_checked": "={{ $json.body.timePOST }}",
+            "date_checked": "={{ $json.body.datePOST }}",
+            "device_checked": "={{ $json.body.deviceName }}"
+          },
+          "matchingColumns": [
+            "barcode"
+          ],
+          "schema": [
+            {
+              "id": "Item",
+              "displayName": "Item",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "barcode",
+              "displayName": "barcode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "time_checked",
+              "displayName": "time_checked",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "date_checked",
+              "displayName": "date_checked",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "time_diff",
+              "displayName": "time_diff",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "date_diff",
+              "displayName": "date_diff",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "device_checked",
+              "displayName": "device_checked",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fe605e44-c585-49e6-be78-493242d7b80e",
+      "name": "Update Checked Inventory",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        1660,
+        560
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9aOtfgxoJatzJlSj",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7ff0ba93-5bcc-4be0-8008-d55fc36689f6",
+              "name": "body",
+              "value": "={{ $json.body }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "36874ba4-9000-4e2b-9a10-df7d4e31fb7e",
+      "name": "Extract Body",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "b9770ba4-8b13-430e-9520-0da5f6c48fd3",
+              "leftValue": "={{ $json.body.requestType }}",
+              "rightValue": "invAdd",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4de1adb9-2ebf-4d35-9390-0b5c0b8f6aa5",
+      "name": "Conditional 1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "711e2bce-5990-43aa-92a2-48d7f0711f52",
+              "leftValue": "={{ $json.body.requestType }}",
+              "rightValue": "invCull",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c33fe97c-029e-4722-aea4-792968e7c979",
+      "name": "Conditional 2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "032a2be7-9f7a-4fe6-bae1-d244fe1ff7e4",
+              "name": "body.itemName",
+              "value": "={{ $json.body.itemName.toUpperCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "d947476a-a737-4ed7-99c8-e79fbf327bad",
+              "name": "body.item",
+              "value": "={{ $json.body.item }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0000b717-6c21-4674-8b0c-2bf5d3911800",
+      "name": "Format Dictionary Items",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1PFpo9WiDJKhYzNnYqKVgi8t-sZZf6mFJDrhQ0Q74Fn0",
+          "mode": "list",
+          "cachedResultName": "Work Log",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PFpo9WiDJKhYzNnYqKVgi8t-sZZf6mFJDrhQ0Q74Fn0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "JamesLog",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PFpo9WiDJKhYzNnYqKVgi8t-sZZf6mFJDrhQ0Q74Fn0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "DATE": "={{ $json.body.datePOST }}",
+            "TIME": "={{ $json.body.timePOST }}",
+            "PROCESS": "={{ $if($json.body.requestType==\"invAdd\", \n      \"James added an item to the inventory list.\",\n   $if($json.body.requestType==\"invCull\", \n      \"James added an item to be culled tomorrow.\", \n      \"James checked an inventory item for restock.\" )) \n}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "DATE",
+              "displayName": "DATE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TIME",
+              "displayName": "TIME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROCESS",
+              "displayName": "PROCESS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "46d48ca0-574f-4973-9669-6dff0896b3e6",
+      "name": "Log Work",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        1020,
+        -60
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9aOtfgxoJatzJlSj",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "63cf1df3-d9a0-49b7-9197-bc84fa1e1e84",
+        "options": {}
+      },
+      "id": "d48b6b00-1b58-4e48-ae5d-2b837b80743c",
+      "name": "POST Data",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        560,
+        160
+      ],
+      "webhookId": "63cf1df3-d9a0-49b7-9197-bc84fa1e1e84"
+    },
+    {
+      "parameters": {
+        "content": "Inventory is also checked while items are culled so this page should be updated simultaneously.",
+        "height": 93.56165167428901
+      },
+      "id": "b7e65327-9c10-4c71-8a27-e3682218f958",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        540
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Extract Body": {
+      "main": [
+        [
+          {
+            "node": "Conditional 1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log Work",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conditional 1": {
+      "main": [
+        [
+          {
+            "node": "Format Dictionary Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Conditional 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conditional 2": {
+      "main": [
+        [
+          {
+            "node": "Add to Cull List",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Checked Inventory",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Checked Inventory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Dictionary Items": {
+      "main": [
+        [
+          {
+            "node": "Add Inventory Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST Data": {
+      "main": [
+        [
+          {
+            "node": "Extract Body",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Inventory Item": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "58cb844b-e9ff-4142-8f64-4f112697e887",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a1574a9d729d5b363de11bda99db3b3e76168efb7ea48718a7f1f6a04f55f673"
+  },
+  "id": "1ZtFupO9AIzvK5UW",
+  "tags": []
+}
